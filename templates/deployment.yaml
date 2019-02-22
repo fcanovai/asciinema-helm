@@ -53,16 +53,7 @@ spec:
           volumeMounts:
             - name: app-uploads
               mountPath: /app/uploads
-        - name: nginx
-          image: {{ template "nginx-image.url" . }}
-          volumeMounts:
-            - name: {{ template "asciinema.fullname" . }}-nginx-config-volume
-              mountPath: "/etc/nginx/conf.d"
-              readOnly: true
-      restartPolicy: Always
+     restartPolicy: Always
       volumes:
         - name: app-uploads
           emptyDir: {}
-        - name: {{ template "asciinema.fullname" . }}-nginx-config-volume
-          configMap:
-            name: {{ template "asciinema.fullname" . }}-nginx-config

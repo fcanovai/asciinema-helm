@@ -12,11 +12,7 @@ spec:
   selector:
     app: {{ template "asciinema.fullname" . }}
   ports:
-    - name: {{ template "asciinema.fullname" . }}-http-port
+   - name: {{ template "asciinema.fullname" . }}-exui-port
       protocol: TCP
       port: 80
-      targetPort: 80
-    - name: {{ template "asciinema.fullname" . }}-exui-port
-      protocol: TCP
-      port: 4040
-      targetPort: 4040
+      targetPort: 4000
